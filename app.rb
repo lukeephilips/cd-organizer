@@ -11,6 +11,14 @@ end
 get('/artists/new') do
   erb(:artists_form)
 end
+
+post('/artists') do
+  name = params.fetch("name")
+  Artist.new(name).save()
+  @artists = Artist.all()
+  erb(:artists)
+end
+
 get('/artists') do
   @artists = Artist.all()
   erb(:artists)

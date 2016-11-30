@@ -20,4 +20,9 @@ describe(CD) do
       expect(CD.all).to(eq([@new_cd, @new_cd2]))
     end
   end
+  describe('.find') do
+    it('returns a CD based on the id') do
+      expect(CD.find(1)).to(eq(@new_cd))
+    end
+  end
 end
