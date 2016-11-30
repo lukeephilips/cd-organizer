@@ -1,0 +1,9 @@
+Single CD organizer Object contains multiple CD Objects
+
+each CD has properties:
+  artist, album, ID
+
+Organizer .all method can display all CD Objects
+Organizer .search(artist) method will display all CDs by artist by calling .find(id).artist
+
+Organizer .find(artist) method will display all CDs by artist
