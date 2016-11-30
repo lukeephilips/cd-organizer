@@ -1,12 +1,8 @@
 class CD
   @@all_cds = []
-  define_method(:initialize) do |artist, album|
-    @artist = artist
+  define_method(:initialize) do |album|
     @album = album
     @id = @@all_cds.length + 1
-  end
-  define_method(:artist) do
-    @artist
   end
   define_method(:album) do
     @album

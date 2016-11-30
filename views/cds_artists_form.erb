@@ -1,0 +1,9 @@
+<h1>Enter your new <%= @artist.name() %> CD</h1>
+
+<form action="/artists/<%= @artist.id() %>/artist" method="post">
+  <div class="form-group">
+    <label for="album">Album Name:</label>
+    <input type="text" name="album" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

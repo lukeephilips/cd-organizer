@@ -15,24 +15,21 @@ describe('takes user to target route', {:type=>:feature}) do
     click_link('Create a new artist category')
     expect(page).to have_content("Enter a new artist name")
   end
-
-  
+  it('the route will take user to artist list') do
+    visit('/')
+    click_link('Create a new artist category')
+    fill_in('name', :with => "Snoop Dogg")
+    click_button('Submit')
+    expect(page).to have_content("Snoop Dogg")
+  end
   # it('the route will take user to cd list') do
   #   visit('/')
-  #   click_link('Create new CD')
-  #   fill_in('artist', :with => "Snoop Dogg")
-  #   fill_in('album', :with => "Doggystyle")
+  #   Artist.clear()
+  #   click_link('Create a new artist category')
+  #   fill_in('name', :with => "Snoop Dogg")
   #   click_button('Submit')
-  #   expect(page).to have_content("Success! You added a CD")
-  # end
-  # it('the route will take user to cd list') do
-  #   visit('/')
-  #   click_link('Create new CD')
-  #   fill_in('artist', :with => "Snoop Dogg")
-  #   fill_in('album', :with => "Doggystyle")
-  #   click_button('Submit')
-  #   expect(page).to have_content("Success! You added a CD")
-  #   click_link('View all CDs')
   #   expect(page).to have_content("Snoop Dogg")
+  #   click_link('Snoop Dogg')
+  #   expect(page).to have_content("Doggystyle")
   # end
 end

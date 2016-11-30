@@ -24,6 +24,27 @@ get('/artists') do
   erb(:artists)
 end
 
+get('/artists/:id') do
+  @artist = Artist.find(params.fetch('id').to_i())
+  erb(:cds_artists_form)
+end
+
+post('/artists/:id/artist') do
+  album = params.fetch("album")
+  @cd = CD.new(album)
+  @cd.save()
+  @artist = Artist.find(params.fetch('id').to_i)
+  @artist.add_album(@cd)
+  erb(:artist)
+end
+
+# post('/artists/:id/album/') do
+#   name = params.fetch("album")
+#   CD.new(name).save()
+#   @albums = CD.all()
+#   erb(:artists)
+# end
+
 get('/cds/new') do
   erb(:cds_form)
 end
@@ -34,9 +55,8 @@ get('/cds') do
 end
 
 post('/cds') do
-  artist = params.fetch("artist")
   album = params.fetch("album")
-  CD.new(artist, album).save()
+  CD.new(album).save()
   @cds = CD.all()
   erb(:success)
 end
