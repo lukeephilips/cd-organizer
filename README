@@ -7,3 +7,9 @@ Organizer .all method can display all CD Objects
 Organizer .search(artist) method will display all CDs by artist by calling .find(id).artist
 
 Organizer .find(artist) method will display all CDs by artist
+
+* link back to somewhere from albums list (artist.erb)
+* route to artist.erb when artist li item is clicked
+* link to create new album from albums list (artist.erb)
+
+** extra: view all albums from index

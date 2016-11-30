@@ -2,6 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 also_reload('./lib/**/*.rb')
 require('./lib/cd')
+require("./lib/artists")
 require('pry-nav')
 
 get('/') do
@@ -14,7 +15,8 @@ end
 
 post('/artists') do
   name = params.fetch("name")
-  Artist.new(name).save()
+  artist = Artist.new(name)
+  artist.save()
   @artists = Artist.all()
   erb(:artists)
 end
@@ -37,13 +39,10 @@ post('/artists/:id/artist') do
   @artist.add_album(@cd)
   erb(:artist)
 end
-
-# post('/artists/:id/album/') do
-#   name = params.fetch("album")
-#   CD.new(name).save()
-#   @albums = CD.all()
-#   erb(:artists)
-# end
+get('/artists/:id/artist') do
+  @artist = Artist.find(params.fetch('id').to_i)
+  erb(:artist)
+end
 
 get('/cds/new') do
   erb(:cds_form)
