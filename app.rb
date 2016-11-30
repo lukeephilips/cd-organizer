@@ -2,7 +2,7 @@ require('sinatra')
 require('sinatra/reloader')
 also_reload('./lib/**/*.rb')
 require('./lib/cd')
-require('pry')
+require('pry-nav')
 
 get('/') do
   erb(:index)
@@ -17,7 +17,10 @@ get('/cds') do
   erb(:cds)
 end
 
-post('/success') do
-  binding.pry
+post('/cds') do
+  artist = params.fetch("artist")
+  album = params.fetch("album")
+  CD.new(artist, album).save()
+  @cds = CD.all()
   erb(:success)
 end
