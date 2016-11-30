@@ -8,6 +8,14 @@ get('/') do
   erb(:index)
 end
 
+get('/artists/new') do
+  erb(:artists_form)
+end
+get('/artists') do
+  @artists = Artist.all()
+  erb(:artists)
+end
+
 get('/cds/new') do
   erb(:cds_form)
 end

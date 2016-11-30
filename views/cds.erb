@@ -1,0 +1,9 @@
+<h1>Here is a list of your CDs</h1>
+
+<ul>
+<% @cds.each do |cd| %>
+<li><%= cd.artist() %> <%= cd.album() %></li>
+<% end %>
+</ul>
+
+<a href="/cds/new">Create new CD</a>
