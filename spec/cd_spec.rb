@@ -17,7 +17,6 @@ describe(CD) do
       expect(@new_cd.album).to(eq('Doggystyle'))
     end
     it('creates an array featuring all cds') do
-
       expect(CD.all).to(eq([@new_cd, @new_cd2]))
     end
   end
